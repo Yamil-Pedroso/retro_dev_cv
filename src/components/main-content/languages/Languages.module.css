@@ -1,0 +1,137 @@
+.container {
+  //margin-top: 1rem;
+}
+
+.switchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.2rem;
+  border-radius: 5px;
+  color: #000;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.8rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.langWrapper {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.languageItem {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+
+  p {
+    color: #888888;
+  }
+}
+
+.languagePosition {
+  margin-top: -1.8rem;
+}
+
+.languageLevel {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #494949;
+  color: #fff;
+  top: -2.5rem;
+  left: 0;
+
+  p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f6f6f6;
+  }
+}
+
+.inactive {
+  animation: desapearSmoothDown 0.3s ease-in-out;
+
+  transform: translateY(1.8rem);
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+  z-index: -1;
+}
+
+.active {
+  animation: desapearSmoothDown 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0rem);
+  pointer-events: all;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.behindBoxBase {
+  position: absolute;
+  top: 0rem;
+  left: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(252, 129, 168);
+  transform-origin: bottom left;
+  z-index: -2;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.behindBoxOpen {
+  transform: rotate(-5deg);
+}
+
+.behindBoxClose {
+  transform: rotate(-12deg);
+}
+
+@media (max-width: 768px) {
+  .container {
+  }
+  .langWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5rem auto;
+    width: 16rem;
+    //background: #ccc;
+    gap: 5rem;
+  }
+  .languageBox {
+  }
+}
+
+@keyframes desapearSmoothDown {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes closeBehindBoxSmooth {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(-12deg);
+  }
+}
+
+@keyframes positionSmooth {
+  0% {
+    transform: translateY(0rem);
+  }
+  100% {
+    transform: translateY(-1.8rem);
+    transition: all 0.3s ease-in-out;
+  }
+}
